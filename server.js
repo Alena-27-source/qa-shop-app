@@ -403,6 +403,9 @@ app.get('/api/orders/:id', (req, res) => {
 
 app.use('/api', (req, res) => fail(res, 404, 'Метод не найден'));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((err, req, res, next) => {
